@@ -1,22 +1,19 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# Generated application and package artifacts
+dist/
+dist-electron/
+release/
+*.tsbuildinfo
 
-node_modules
-dist
-dist-ssr
+# Local tooling and logs
+node_modules/
+logs/
+*.log
 *.local
 
-# Editor directories and files
+# Editor files
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
