@@ -7,7 +7,7 @@ Status values: `Not started`, `In progress`, `Blocked`, `Done`.
 | FND-001 | Done | Scaffold secure Electron + React + TypeScript app | Main, preload, renderer, shared layers compile; production package launches. |
 | FND-002 | Done | Add quality tooling and CI | Format, lint, typecheck, tests, and build run deterministically in CI. |
 | FND-003 | Done | Implement typed IPC and permission service | Every privileged IPC endpoint validates input, origin, capability, and user approval when required. |
-| UX-001 | In progress | Build app shell, navigation, and settings framework | Keyboard-accessible dashboard, companion, integrations, plugins, and settings routes. |
+| UX-001 | In progress | Build app shell, navigation, and settings framework | Keyboard-accessible dashboard, companion, integrations, plugins, and settings routes. Sprint 2 adds desktop window and settings controls. |
 | PET-001 | Not started | Implement PixiJS rendering and asset lifecycle | Assets load/unload safely; renderer remains responsive and supports DPI scaling. |
 | PET-002 | Not started | Implement animation state machine | States are cancellable, prioritized, testable, and respect reduced motion. |
 | AI-001 | Not started | Define behavior engine contracts and policy | Intent, context, plan, action, and outcome are typed and auditable. |

@@ -11,6 +11,7 @@ All notable project changes are documented in this file.
 - Versioned `window.pets` preload bridge with schema-validated, read-only app-information IPC.
 - Central permission-policy proof of concept, redacted structured diagnostics, and Home/Settings placeholders.
 - Type checking, linting, Vitest coverage, Windows CI workflow, and NSIS package configuration.
+- Desktop window engine with tray restore, snap-to-edge, click-through, always-on-top, persisted bounds, multi-monitor/DPI state, and debug FPS display.
 
 ### Deferred
 
