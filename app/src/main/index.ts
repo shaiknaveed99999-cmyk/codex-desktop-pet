@@ -14,6 +14,8 @@ import { windowStateChangedChannel } from '../shared/contracts/ipc'
 
 const runtimePaths = resolveRuntimePaths(import.meta.url)
 
+app.commandLine.appendSwitch('force_high_dpi_support')
+
 async function createWindow(engine: WindowEngine): Promise<BrowserWindow> {
   const window = new BrowserWindow({
     width: 1100,

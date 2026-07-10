@@ -12,6 +12,8 @@ Deliver the PixiJS stage, asset pipeline, animation state machine, draggable com
 
 Deliver transparent frameless Windows presentation, tray lifecycle, persisted placement, multi-monitor/DPI awareness, edge snapping, click-through controls, and debug performance visibility. Companion rendering remains deferred.
 
+Sprint 2 implementation is complete pending approval. Lint, strict typecheck, 12 tests, Windows packaging, and packaged runtime smoke verification pass.
+
 ## Phase 2 — AI and Codex
 
 Implement the behavior engine, conversational UI, consented context assembly, OpenAI Codex adapter, streaming, cancellation, confirmation UI, audit history, and resilient offline/error states. Exit when users can receive and approve safe developer assistance end-to-end.

@@ -20,7 +20,7 @@ export class WindowEngine {
   public show(): void { const window = this.requireWindow(); window.show(); window.focus(); this.publish() }
   private workArea() { return this.screen.getDisplayMatching(this.requireWindow().getBounds()).workArea }
   private ensureVisible(): void { const window = this.requireWindow(); window.setBounds(normalizeWindowBounds(window.getBounds(), this.workArea())); this.publish() }
-  private schedulePersist(): void { clearTimeout(this.persistTimer); this.persistTimer = setTimeout(() => { void this.store.save({ bounds: this.requireWindow().getBounds() }) }, 250) }
+  private schedulePersist(): void { clearTimeout(this.persistTimer); this.persistTimer = setTimeout(() => { void this.store.save({ bounds: this.requireWindow().getBounds() }).catch(() => undefined) }, 250) }
   private publish(): WindowEngineState { const state = this.state(); this.onChange(state); return state }
   private requireWindow(): BrowserWindow { if (!this.window) throw new Error('Window engine is not attached.') ; return this.window }
 }

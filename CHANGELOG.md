@@ -12,6 +12,7 @@ All notable project changes are documented in this file.
 - Central permission-policy proof of concept, redacted structured diagnostics, and Home/Settings placeholders.
 - Type checking, linting, Vitest coverage, Windows CI workflow, and NSIS package configuration.
 - Desktop window engine with tray restore, snap-to-edge, click-through, always-on-top, persisted bounds, multi-monitor/DPI state, and debug FPS display.
+- Settings screen, explicit Windows high-DPI support, drag-anywhere surface behavior, and deterministic snap/bounds tests.
 
 ### Deferred
 
