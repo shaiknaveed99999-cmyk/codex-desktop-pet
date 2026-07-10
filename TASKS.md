@@ -25,4 +25,4 @@ Complete FND tasks before feature work. PET, UX, and AI contracts may proceed af
 
 ## Sprint 1 completion note
 
-Sprint 1 delivered FND-001 through FND-003: a Windows Electron foundation, strict quality gates, a versioned and validated read-only IPC capability, secure web preferences, and a minimal accessible Home/Settings shell. Dashboard content, companion capabilities, AI, voice, plugins, integrations, persistence, and Husky remain out of scope.
+Sprint 1 delivered FND-001 through FND-003: a Windows Electron foundation, strict quality gates, a versioned and validated read-only IPC capability, secure web preferences, and a minimal accessible Home/Settings shell. The Sprint 1 remediation centralized runtime output paths, enforced environment-specific CSP headers, normalized IPC errors, and added recursive diagnostic redaction. Dashboard content, companion capabilities, AI, voice, plugins, integrations, persistence, and Husky remain out of scope.

@@ -1,9 +1,9 @@
 import type { IpcMain } from 'electron'
 import { randomUUID } from 'node:crypto'
-import { appInfoRequestSchema } from '../../shared/contracts/appInfo'
-import type { AppInfo } from '../../shared/contracts/appInfo'
+import { appInfoRequestSchema, appInfoResultSchema, appInfoSchema } from '../../shared/contracts/appInfo'
+import type { AppInfo, AppInfoResult } from '../../shared/contracts/appInfo'
 import { appInfoChannel } from '../../shared/contracts/ipc'
-import { appErrorCodes, AppError } from '../../shared/errors/appError'
+import { appErrorCodes } from '../../shared/errors/appError'
 import type { PermissionService } from '../permissions/permissionService'
 
 type IpcDependencies = Readonly<{
@@ -13,9 +13,9 @@ type IpcDependencies = Readonly<{
 }>
 
 export function registerIpcHandlers({ ipcMain, permissionService, getAppInfo }: IpcDependencies): void {
-  ipcMain.handle(appInfoChannel, (_event, request: unknown) => {
+  ipcMain.handle(appInfoChannel, (_event, request: unknown): AppInfoResult => {
     if (!appInfoRequestSchema.safeParse(request).success) {
-      throw new AppError(appErrorCodes.invalidRequest, 'The app information request must not contain a payload.')
+      return { ok: false, error: { code: appErrorCodes.invalidRequest, message: 'The app information request must not contain a payload.' } }
     }
 
     const allowed = permissionService.isAllowed({
@@ -27,9 +27,21 @@ export function registerIpcHandlers({ ipcMain, permissionService, getAppInfo }: 
     })
 
     if (!allowed) {
-      throw new AppError(appErrorCodes.permissionDenied, 'The app information capability is not granted.')
+      return { ok: false, error: { code: appErrorCodes.permissionDenied, message: 'The app information capability is not granted.' } }
     }
 
-    return getAppInfo()
+    let appInfo: AppInfo
+    try {
+      appInfo = getAppInfo()
+    } catch {
+      return { ok: false, error: { code: appErrorCodes.internal, message: 'Application information is unavailable.' } }
+    }
+
+    const parsedInfo = appInfoSchema.safeParse(appInfo)
+    if (!parsedInfo.success) {
+      return { ok: false, error: { code: appErrorCodes.internal, message: 'Application information is unavailable.' } }
+    }
+
+    return appInfoResultSchema.parse({ ok: true, data: parsedInfo.data })
   })
 }

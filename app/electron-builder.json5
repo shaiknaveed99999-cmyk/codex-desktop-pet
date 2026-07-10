@@ -2,11 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
   "appId": "com.pets.desktop",
   "asar": true,
+  "electronDist": "node_modules/electron/dist",
   "productName": "Pets",
   "directories": { "output": "release/${version}" },
   "files": ["dist", "dist-electron"],
   "win": {
     "target": [{ "target": "nsis", "arch": ["x64"] }],
+    "signAndEditExecutable": false,
     "artifactName": "${productName}-Windows-${version}-Setup.${ext}"
   },
   "nsis": {

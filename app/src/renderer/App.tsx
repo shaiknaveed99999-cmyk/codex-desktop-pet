@@ -1,15 +1,20 @@
 import { useEffect, useState } from 'react'
-import type { AppInfo } from '../shared/contracts/appInfo'
+import type { AppInfoResult } from '../shared/contracts/appInfo'
 import './styles/app.css'
 
 type Route = 'home' | 'settings'
 
 export function App(): JSX.Element {
   const [route, setRoute] = useState<Route>('home')
-  const [appInfo, setAppInfo] = useState<AppInfo | null>(null)
+  const [appInfoResult, setAppInfoResult] = useState<AppInfoResult | null>(null)
 
   useEffect(() => {
-    void window.pets.getAppInfo().then(setAppInfo)
+    let active = true
+    void window.pets.getAppInfo()
+      .then((result) => { if (active) setAppInfoResult(result) })
+      .catch(() => { if (active) setAppInfoResult({ ok: false, error: { code: 'INTERNAL_ERROR', message: 'Application status is unavailable.' } }) })
+
+    return () => { active = false }
   }, [])
 
   return (
@@ -25,20 +30,21 @@ export function App(): JSX.Element {
         <button type="button" aria-current={route === 'home' ? 'page' : undefined} onClick={() => setRoute('home')}>Home</button>
         <button type="button" aria-current={route === 'settings' ? 'page' : undefined} onClick={() => setRoute('settings')}>Settings</button>
       </nav>
-      {route === 'home' ? <Home appInfo={appInfo} /> : <Settings />}
+      {route === 'home' ? <Home appInfoResult={appInfoResult} /> : <Settings />}
     </main>
   )
 }
 
-function Home({ appInfo }: Readonly<{ appInfo: AppInfo | null }>): JSX.Element {
+function Home({ appInfoResult }: Readonly<{ appInfoResult: AppInfoResult | null }>): JSX.Element {
   return (
     <section className="panel" aria-labelledby="home-title">
       <h2 id="home-title">Welcome to Pets</h2>
       <p>The secure application foundation is active. Companion, AI, voice, plugin, and integration features are intentionally deferred.</p>
       <dl className="details">
-        <div><dt>Application version</dt><dd>{appInfo?.version ?? 'Loading…'}</dd></div>
-        <div><dt>Runtime</dt><dd>{appInfo?.isPackaged ? 'Packaged' : 'Development'}</dd></div>
+        <div><dt>Application version</dt><dd>{appInfoResult?.ok ? appInfoResult.data.version : 'Loading…'}</dd></div>
+        <div><dt>Runtime</dt><dd>{appInfoResult?.ok ? (appInfoResult.data.isPackaged ? 'Packaged' : 'Development') : 'Unavailable'}</dd></div>
       </dl>
+      {appInfoResult && !appInfoResult.ok ? <p role="alert">{appInfoResult.error.message}</p> : null}
     </section>
   )
 }

@@ -15,3 +15,11 @@ All notable project changes are documented in this file.
 ### Deferred
 
 - AI/Codex, animations/PixiJS, voice, plugins, integrations, persistence, auto-updates, and Husky behavior.
+
+### Fixed
+
+- Resolved the packaged preload output path through a centralized runtime-path module.
+- Moved CSP enforcement into the Electron main process with production-safe connection rules.
+- Returned typed IPC success/error results and added recursive diagnostic redaction.
+- Configured packaging to reuse the locally installed Electron Windows runtime for offline builds.
+- Disabled Windows executable editing for the unsigned internal build, avoiding unavailable symbolic-link privileges.

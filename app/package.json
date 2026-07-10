@@ -10,7 +10,9 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "build": "tsc && vite build && electron-builder",
+    "build:bundle": "tsc && vite build",
+    "build": "npm run build:bundle && electron-builder",
+    "package:win": "npm run build",
     "lint": "eslint . --max-warnings 0",
     "preview": "vite preview"
   },
