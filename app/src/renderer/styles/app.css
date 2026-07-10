@@ -1,0 +1,16 @@
+.app-shell { width: min(960px, calc(100% - 48px)); margin: 0 auto; padding: 56px 0; }
+.app-header { display: flex; align-items: start; justify-content: space-between; gap: 24px; }
+.eyebrow { margin: 0; color: #a7bad6; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; }
+h1 { margin: 8px 0 0; font-size: clamp(2rem, 5vw, 3rem); }
+.status { border: 1px solid #355a47; border-radius: 999px; background: #143423; color: #b8f4ce; padding: 6px 12px; }
+.navigation { display: flex; gap: 8px; margin: 36px 0 20px; }
+.navigation button { border: 1px solid #32445f; border-radius: 8px; background: #172133; color: inherit; padding: 9px 14px; cursor: pointer; }
+.navigation button[aria-current="page"] { background: #315f91; border-color: #8ac5ff; }
+.panel { border: 1px solid #32445f; border-radius: 16px; background: #172133; padding: 28px; }
+.panel h2 { margin-top: 0; }
+.panel p { max-width: 68ch; color: #c9d6e8; line-height: 1.6; }
+.details { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin: 28px 0 0; }
+.details div { border-left: 3px solid #6ca8df; padding-left: 12px; }
+.details dt { color: #a7bad6; font-size: 0.9rem; }
+.details dd { margin: 4px 0 0; font-weight: 600; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; } }
