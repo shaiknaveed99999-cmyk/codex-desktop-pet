@@ -9,6 +9,7 @@ Status values: `Not started`, `In progress`, `Blocked`, `Done`.
 | FND-003 | Done | Implement typed IPC and permission service | Every privileged IPC endpoint validates input, origin, capability, and user approval when required. |
 | UX-001 | In progress | Build app shell, navigation, and settings framework | Keyboard-accessible dashboard, companion, integrations, plugins, and settings routes. Sprint 2 adds desktop window and settings controls. |
 | WIN-001 | Done | Implement desktop window engine | Transparent frameless window, rounded shell, drag-anywhere surface, always-on-top, tray restore, click-through toggle, persisted bounds, snap, multi-monitor/DPI state, Settings screen, debug overlay, and FPS monitor are implemented and tested. |
+| DOC-001 | Done | Establish enterprise project documentation | Guides, metrics, issue register, ADRs, README, and contribution/release workflow are complete without runtime changes. |
 | PET-001 | Not started | Implement PixiJS rendering and asset lifecycle | Assets load/unload safely; renderer remains responsive and supports DPI scaling. |
 | PET-002 | Not started | Implement animation state machine | States are cancellable, prioritized, testable, and respect reduced motion. |
 | AI-001 | Not started | Define behavior engine contracts and policy | Intent, context, plan, action, and outcome are typed and auditable. |
@@ -31,3 +32,7 @@ Sprint 1 delivered FND-001 through FND-003: a Windows Electron foundation, stric
 ## Sprint 2 completion note
 
 WIN-001 is complete on `feature/window-engine`. The validated build includes transparent frameless presentation, rounded corners, drag-anywhere behavior with non-drag controls, always-on-top state, tray restore, click-through toggle, persisted bounds, edge snapping, multi-monitor/DPI reporting, Settings controls, debug overlay, and FPS monitoring. No PixiJS, animations, AI, voice, plugins, or Husky behavior was added.
+
+## Documentation checkpoint
+
+DOC-001 is complete. Repository documentation now lives under `docs/`, with contributor, testing, release, metrics, known-issue, roadmap, architecture, and ADR guidance. Sprint 3 remains pending approval.

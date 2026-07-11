@@ -25,3 +25,11 @@ All notable project changes are documented in this file.
 - Returned typed IPC success/error results and added recursive diagnostic redaction.
 - Configured packaging to reuse the locally installed Electron Windows runtime for offline builds.
 - Disabled Windows executable editing for the unsigned internal build, avoiding unavailable symbolic-link privileges.
+
+## [Unreleased]
+
+### Documentation
+
+- Added enterprise project guides, metrics, known issues, future ideas, architecture documentation, testing/release workflows, and five ADRs.
+- Expanded the root README with project overview, architecture, structure, workflow, roadmap, contribution, screenshots, and license placeholders.
+- Added a pre-Sprint 3 documentation checkpoint without changing application behavior.

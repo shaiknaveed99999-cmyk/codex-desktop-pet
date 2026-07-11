@@ -14,6 +14,10 @@ Deliver transparent frameless Windows presentation, tray lifecycle, persisted pl
 
 Sprint 2 implementation is complete pending approval. Lint, strict typecheck, 12 tests, Windows packaging, and packaged runtime smoke verification pass.
 
+### Pre-Sprint 3 — Documentation and organization
+
+Create enterprise repository guides, metrics, issue tracking, ADRs, contribution workflow, and release documentation without changing application behavior. This checkpoint is complete pending review.
+
 ## Phase 2 — AI and Codex
 
 Implement the behavior engine, conversational UI, consented context assembly, OpenAI Codex adapter, streaming, cancellation, confirmation UI, audit history, and resilient offline/error states. Exit when users can receive and approve safe developer assistance end-to-end.
